@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gian’s Digital Portfolio</title>
+  <style>
+    :root {
+      --bg: #f0f2f5;
+      --text: #333;
+      --header-bg: #003366;
+      --header-text: white;
+      --card-bg: white;
+      --card-shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body.dark {
+      --bg: #121212;
+      --text: #f1f1f1;
+      --header-bg: #001f3f;
+      --header-text: #f1f1f1;
+      --card-bg: #1e1e1e;
+      --card-shadow: rgba(255, 255, 255, 0.05);
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 1rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-center {
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .header-center h1 {
+      margin: 0;
+    }
+
+    nav {
+      text-align: center;
+      margin-top: 0.5rem;
+    }
+
+    nav a {
+      color: var(--header-text);
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .toggle-mode {
+      background: none;
+      border: 1px solid var(--header-text);
+      color: var(--header-text);
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 2rem;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 0.5s ease;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #ccc;
+      color: black;
+      margin-top: 2rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px var(--card-shadow);
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    textarea {
+      width: 100%;
+      height: 100px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .header-left, .header-center {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .toggle-mode {
+        margin-top: 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="Gian-Gonzales.png" alt="Profile Picture" class="profile-pic" />
+    </div>
+    <div class="header-center">
+      <h1>Gian’s Digital Portfolio</h1>
+      <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('about')">About</a>
+        <a href="#" onclick="showSection('projects')">Projects</a>
+        <a href="#" onclick="showSection('contact')">Contact</a>
+      </nav>
+    </div>
+    <button class="toggle-mode" onclick="toggleMode()">🌙 Dark Mode</button>
+  </header>
+
+  <main>
+    <section id="home">
+      <h2>Welcome!</h2>
+      <p>Hello! I'm Gian Gonzales. Welcome to my personal portfolio website. I'm passionate about software development, mobile applications, and building functional digital experiences that matter.</p>
+      <p><strong>Note:</strong> <em>Feel free to click on the options above to view each section of the webpage. ❤️</em></p>
+    </section>
+
+    <section id="about" class="hidden">
+      <h2>About Me</h2>
+      <p>
+        <strong>Name:</strong> Gian Gonzales<br>
+        <strong>Age:</strong> 23<br>
+        <strong>Birthday:</strong> November 29, 2001<br>
+        <strong>Email Address:</strong>
+        <a href="mailto:gonzales.261641@pasay-edsa.sti.edu.ph">gonzales.261641@pasay-edsa.sti.edu.ph</a>
+      </p>
+      <p>I’m a developer with a deep interest in mobile and web technologies. My journey has taken me through SAP certification, Android development, and the beginnings of backend systems using ASP.NET. I'm always curious, always learning, and always building.</p>
+    </section>
+
+    <section id="projects" class="hidden">
+      <h2>Projects</h2>
+      <div class="project-grid">
+        <div class="card">
+          <img src="SAP-S4HANA.png" alt="SAP S/4HANA Interface" />
+          <h3>SAP S/4HANA Certified</h3>
+          <p>I am certified in SAP S/4HANA, an intelligent, integrated ERP system that runs on the in-memory SAP HANA database. This certification demonstrates my ability to manage enterprise-level business processes, financials, procurement, and analytics with modern SAP tools.</p>
+        </div>
+
+        <div class="card">
+          <img src="calculator.png" alt="Mobile Calculator App" />
+          <h3>Mobile Calculator App</h3>
+          <p>Developed multiple apps including:
+            <ul>
+              <li><strong>Calculator App:</strong> A clean, responsive calculator built with Java in Android Studio.</li>
+              <li><strong>Puzzle Game:</strong> An interactive mobile puzzle game with score tracking and timer functionality.</li>
+              <li><strong>Database Integration:</strong> Used SQLite to persist user data, enabling login, user progress, and high score storage.</li>
+            </ul>
+          </p>
+        </div>
+
+        <div class="card">
+          <img src="website.png" alt="Website with Video Player" />
+          <h3>Websites with Video Embeds and ASP.NET Basics</h3>
+          <p>Created interactive websites embedding educational and activity-based videos. Began exploring backend technologies through ASP.NET, including server-side scripting, forms, and C# logic integration for dynamic web applications.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="hidden">
+      <h2>Contact Me</h2>
+      <form id="contact-form">
+        <label>Name:<br>
+          <input type="text" name="name" required />
+        </label><br><br>
+        <label>Email:<br>
+          <input type="email" name="email" required />
+        </label><br><br>
+        <label>Message:<br>
+          <textarea name="message" required></textarea>
+        </label><br><br>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Gian Gonzales — All rights reserved.
+  </footer>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("main > section").forEach(s => s.classList.add("hidden"));
+      document.getElementById(id).classList.remove("hidden");
+    }
+
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+      const button = document.querySelector('.toggle-mode');
+      button.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    }
+
+    document.getElementById("contact-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Message sent! (This is a demo — no backend yet.)");
+      this.reset();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      showSection('home');
+      const button = document.querySelector('.toggle-mode');
+      button.textContent = document.body.classList.contains('dark') ? '☀️ Light Mode' : '🌙 Dark Mode';
+    });
+  </script>
+</body>
+</html>
